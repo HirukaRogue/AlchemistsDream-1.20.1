@@ -1,4 +1,4 @@
-package net.hirukarogue.alchemistdream;
+package net.hirukarogue.alchemistsdream;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;

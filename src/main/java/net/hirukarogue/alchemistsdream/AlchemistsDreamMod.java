@@ -1,6 +1,11 @@
-package net.hirukarogue.alchemistdream;
+package net.hirukarogue.alchemistsdream;
 
 import com.mojang.logging.LogUtils;
+import net.hirukarogue.alchemistsdream.block.AlchemistsDreamBlocks;
+import net.hirukarogue.alchemistsdream.block.entity.AlchemistisDreamBlockEntities;
+import net.hirukarogue.alchemistsdream.items.Ingredients;
+import net.hirukarogue.alchemistsdream.items.ProcessorBlocks;
+import net.hirukarogue.alchemistsdream.items.Products;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -26,6 +31,20 @@ public class AlchemistsDreamMod
     public AlchemistsDreamMod()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        //Creative mode tab
+        AlchemistsDreamCreativeTab.register(modEventBus);
+
+        //Items Registry
+        Ingredients.register(modEventBus);
+        Products.register(modEventBus);
+
+        //Block Items Registry
+        ProcessorBlocks.register(modEventBus);
+
+        //Block Registry
+        AlchemistsDreamBlocks.register(modEventBus);
+        AlchemistisDreamBlockEntities.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
