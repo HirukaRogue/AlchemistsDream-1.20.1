@@ -15,7 +15,7 @@ public class Ingredients {
     public static final RegistryObject<Item> SUN_FLOWER_SEEDS =
             INGREDIENTS.register("sunflower_seeds", () -> new Item(new Item.Properties()));
 
-    //processed fungies
+    //fungi
     public static final RegistryObject<Item> WARPED_NETHER_WART =
             INGREDIENTS.register("warped_nether_wart", () -> new Item(new Item.Properties()));
 

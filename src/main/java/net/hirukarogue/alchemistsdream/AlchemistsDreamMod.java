@@ -3,6 +3,8 @@ package net.hirukarogue.alchemistsdream;
 import com.mojang.logging.LogUtils;
 import net.hirukarogue.alchemistsdream.block.AlchemistsDreamBlocks;
 import net.hirukarogue.alchemistsdream.block.entity.AlchemistisDreamBlockEntities;
+import net.hirukarogue.alchemistsdream.fluids.PotionFluidType;
+import net.hirukarogue.alchemistsdream.fluids.PotionFluids;
 import net.hirukarogue.alchemistsdream.items.Ingredients;
 import net.hirukarogue.alchemistsdream.items.ProcessorBlocks;
 import net.hirukarogue.alchemistsdream.items.Products;
@@ -45,6 +47,10 @@ public class AlchemistsDreamMod
         //Block Registry
         AlchemistsDreamBlocks.register(modEventBus);
         AlchemistisDreamBlockEntities.register(modEventBus);
+
+        //Fluid Registry
+        PotionFluidType.register(modEventBus);
+        PotionFluids.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
