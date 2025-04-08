@@ -1,8 +1,13 @@
 package net.hirukarogue.alchemistsdream.items;
 
 import net.hirukarogue.alchemistsdream.AlchemistsDreamMod;
+import net.hirukarogue.alchemistsdream.fluids.BasePotionFluidType;
+import net.hirukarogue.alchemistsdream.fluids.PotionFluids;
 import net.hirukarogue.alchemistsdream.items.custom.PotionBucketItem;
+import net.hirukarogue.alchemistsdream.miscellaneous.IDTrimmer;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -18,10 +23,15 @@ public class PotionBucket {
 
     public static final List<RegistryObject<Item>> POTION_BUCKETS = new ArrayList<>();
 
+    static {
+        for (RegistryObject<FlowingFluid> source : PotionFluids.SOURCE_POTION_FLUIDS) {
+            registerBucket(source);
+        }
+    }
 
     private static void registerBucket(RegistryObject<FlowingFluid> fluid) {
-        String name = String.valueOf(fluid.getKey());
-        POTION_BUCKETS.add(BUCKETS.register(name, () -> new PotionBucketItem(fluid.get)));
+        String name = IDTrimmer.trim(String.valueOf(fluid.getId())) + "_bucket";
+        POTION_BUCKETS.add(BUCKETS.register(name, () -> new PotionBucketItem(fluid, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1))));
     }
 
     public static void register(IEventBus eventBus) {

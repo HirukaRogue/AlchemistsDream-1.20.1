@@ -1,6 +1,7 @@
 package net.hirukarogue.alchemistsdream.fluids;
 
 import net.hirukarogue.alchemistsdream.AlchemistsDreamMod;
+import net.hirukarogue.alchemistsdream.miscellaneous.IDTrimmer;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -28,7 +29,7 @@ public class PotionFluids {
     }
 
     private static void registerPotionFluid(RegistryObject<FluidType> fluidType) {
-        String fluidName = String.valueOf(fluidType.getKey());
+        String fluidName = IDTrimmer.trim(String.valueOf(fluidType.getId()));
         fluidName = fluidName.replace("_type", "");
 
         RegistryObject<FlowingFluid> source = FLUIDS.register(fluidName,

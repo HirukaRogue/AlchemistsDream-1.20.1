@@ -5,6 +5,7 @@ import net.hirukarogue.alchemistsdream.block.entity.AlchemistsCauldron.Alchemist
 import net.hirukarogue.alchemistsdream.block.processing.AlchemistsCauldron;
 import net.hirukarogue.alchemistsdream.fluids.PotionFluids;
 import net.hirukarogue.alchemistsdream.items.ProcessorBlocks;
+import net.hirukarogue.alchemistsdream.miscellaneous.IDTrimmer;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -39,7 +40,7 @@ public class AlchemistsDreamBlocks {
     }
 
     private static void registerPotionFluid(RegistryObject<FlowingFluid> fluid) {
-        String name = String.valueOf(fluid.getKey());
+        String name = IDTrimmer.trim(String.valueOf(fluid.getId()));
         POTION_FLUIDS.add(registerBlock(name,
                 () -> new LiquidBlock(fluid, BlockBehaviour.Properties.copy(Blocks.WATER))));
     }

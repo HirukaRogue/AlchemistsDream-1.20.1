@@ -6,6 +6,7 @@ import net.hirukarogue.alchemistsdream.block.entity.AlchemistisDreamBlockEntitie
 import net.hirukarogue.alchemistsdream.fluids.PotionFluidType;
 import net.hirukarogue.alchemistsdream.fluids.PotionFluids;
 import net.hirukarogue.alchemistsdream.items.Ingredients;
+import net.hirukarogue.alchemistsdream.items.PotionBucket;
 import net.hirukarogue.alchemistsdream.items.ProcessorBlocks;
 import net.hirukarogue.alchemistsdream.items.Products;
 import net.minecraftforge.api.distmarker.Dist;
@@ -40,6 +41,7 @@ public class AlchemistsDreamMod
         //Items Registry
         Ingredients.register(modEventBus);
         Products.register(modEventBus);
+        PotionBucket.register(modEventBus);
 
         //Block Items Registry
         ProcessorBlocks.register(modEventBus);

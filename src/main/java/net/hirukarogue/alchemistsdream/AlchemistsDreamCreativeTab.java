@@ -2,10 +2,12 @@ package net.hirukarogue.alchemistsdream;
 
 import net.hirukarogue.alchemistsdream.block.AlchemistsDreamBlocks;
 import net.hirukarogue.alchemistsdream.items.Ingredients;
+import net.hirukarogue.alchemistsdream.items.PotionBucket;
 import net.hirukarogue.alchemistsdream.items.Products;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -29,6 +31,10 @@ public class AlchemistsDreamCreativeTab {
 
                         //custom blocks
                         pOutput.accept(AlchemistsDreamBlocks.ALCHEMISTS_CAULDRON.get());
+
+                        for (RegistryObject<Item> bucket : PotionBucket.POTION_BUCKETS) {
+                            pOutput.accept(bucket.get());
+                        }
                     }).build());
 
     public static void register(IEventBus eventBus) {
